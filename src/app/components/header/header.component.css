@@ -1,0 +1,93 @@
+#title{
+    color: white;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+#fac{
+    width: fit-content;
+}
+#favpkm{
+    color: orange;
+    font-weight: bold;
+    text-decoration: none!important;
+}
+#btnv{
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    border-width: 1.5px;
+    border-color: gold;
+    transform: 0.2s;
+}
+#btnv:hover{
+  background-color: yellow;
+  box-shadow: 0 0 10px gold, 0 0 40px gold, 0 0 80px gold;
+  transition-delay: 0.2s;
+}
+
+.popup-container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+  }
+  
+  .popup-container img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .popup-container h3,
+  .popup-container h4,
+  .popup-container h5 {
+    text-align: center;
+  }
+  
+  .popup-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .popup-container td {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* estilos para el autocompletado */
+.search-results {
+  position: absolute;
+  top: 100%; 
+  right: 2rem;
+  width: 13rem;
+  z-index: 1; /* Aseguramos que la lista esté por encima del resto del contenido */
+  background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco para la lista */
+  backdrop-filter: blur(20px);
+  border: 1px solid #ccc; /* Borde para la lista */
+  border-top: none; /* Ocultamos el borde superior para que no se repita con el input */
+  border-radius: 0 0 4px 4px; /* Redondeamos las esquinas inferiores */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para la lista */
+}
+
+/* Estilos para cada elemento de la lista de resultados */
+.search-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-results li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Estilo para el elemento seleccionado en la lista */
+.search-results li:hover,
+.search-results li.selected {
+  background-color: #f1f1f1; /* Cambiamos el fondo al pasar el mouse o seleccionar un elemento */
+}
+
+
+

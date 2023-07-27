@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="default">
+  <div class="container-fluid">
+    <a class="navbar-brand" id="title">Welcome to Naitsirc's Pokedex</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <div class="row align-items-center" id="favbar">
+            <div class="col-4" id="fac">
+              <a class="nav-link active" id="favpkm" *ngIf="favoritePkmName">Favorite Pkm: </a>
+            </div>
+            <div class="col">
+              <a class="text-warning">{{ favoritePkmName | titlecase }}</a>
+            </div>
+            <div class="col" *ngIf="favoritePkmName">
+              <button class="btn btn-secondary btn-sm" type="button" (click)="openDetailsModal()" id="btnv">View</button>
+            </div>
+          </div>
+        </li>        
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search Pokemon" [(ngModel)]="searchInput" [ngModelOptions]="{ standalone: true }" (input)="onInputChange()">
+        
+      </form>
+      
+      <!-- Agregamos el div que contendrá la lista de resultados -->
+      <div class="search-results" *ngIf="searchResults.length > 0">
+        <ul>
+          <li *ngFor="let result of searchResults" (click)="showPokemonDetails(result)">{{ result | titlecase }}</li>
+        </ul>
+      </div>
+      
+      
+    </div>
+  </div>
+</nav>
+
+<div class="modal" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailsModalLabel">{{ toTitleCase(favoritePkmName || '') }} Details</h5>
+        <button type="button" class="close" (click)="closeDetailsModal()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img *ngIf="favoritePkmImage" [src]="favoritePkmImage" alt="Pokemon Image" class="img-fluid mb-3">
+        <div *ngIf="pokemonDetails">
+          <h5>Types:</h5>
+          <ul>
+            <li *ngFor="let type of pokemonDetails.types">{{ toTitleCase(type.type.name) }}</li>
+          </ul>
+
+          <h5>Abilities:</h5>
+          <ul>
+            <li *ngFor="let ability of pokemonDetails.abilities">{{ toTitleCase(ability.ability.name) }}</li>
+          </ul>
+
+          <h5>Stats:</h5>
+          <table class="table">
+            <tr *ngFor="let stat of pokemonDetails.stats">
+              <td>{{ toTitleCase(stat.stat.name) }}</td>
+              <td>{{ stat.base_stat }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

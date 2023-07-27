@@ -1,0 +1,22 @@
+.main{
+    max-width: 60%;
+}
+
+.aside{
+    width: 50%;
+    
+}
+.card {
+    margin-top: 20px;
+    height: 93%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    text-align: center;
+  }

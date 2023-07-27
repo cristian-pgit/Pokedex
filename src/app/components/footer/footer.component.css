@@ -1,0 +1,12 @@
+#summary{
+  position: relative;
+  left: 20rem;
+  font-weight: bold;
+  box-shadow: 0 0 10px lightblue, 0 0 10px lightblue, 0 0 10px lightblue;
+}
+
+#summary:hover{
+  color: darkblue;
+  font-weight: bold;
+  box-shadow: 0 0 10px turquoise, 0 0 10px turquoise, 0 0 10px turquoise;
+}

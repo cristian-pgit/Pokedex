@@ -1,0 +1,37 @@
+<!-- main-page.component.html -->
+
+<div class="container-fluid">
+  <p class="display-4 text-center" id="title"><strong>Pokemon List</strong></p>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let pokemon of pokemons; let i = index">
+      <table class="table table-hover">
+        <tbody>
+          <tr class="table-primary">
+            <div class="row">
+               <div class="col">
+                  <td class="namepok">{{ pokemons[i].name | titlecase }}</td>
+               </div>
+              <div class="col">
+                <button class="btn btn-outline-primary btn-sm"
+                        [ngClass]="{'btn-primary': isFavorite(pokemons[i].name), 'btn-outline-primary': !isFavorite(pokemons[i].name)}"
+                        (click)="markAsFavorite(pokemons[i].name)">
+                  <span *ngIf="isFavorite(pokemons[i].name)" class="me-2">❤️</span>
+                  {{ isFavorite(pokemons[i].name) ? 'Favorito' : 'Marcar Favorito' }}
+                </button>
+              </div>
+              <div class="col">
+                <td><button class="btn btn-primary btn-sm" (click)="showPokemonDetails(pokemons[i].name)">Details</button></td>
+              </div>
+            </div>
+           
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="text-center" id="btnpag">
+  <button class="btn btn-info" (click)="loadPreviousPage()">Página anterior</button>
+  <button class="btn btn-info" (click)="loadNextPage()">Siguiente página</button>
+</div>

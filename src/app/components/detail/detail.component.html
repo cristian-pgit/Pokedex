@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <p *ngIf="selectedPokemon" >Pokemon Details</p>
+  <div *ngIf="selectedPokemon">
+    <h2>{{ selectedPokemon.name | titlecase }}</h2>
+    <img [src]="selectedPokemon.sprites.front_default" alt="Pokemon Image" />
+    <div class="row">
+      <div class="col">
+        <h5>Types:</h5>
+            <ul>
+              <li *ngFor="let type of selectedPokemon.types">{{ type.type.name | titlecase }}</li>
+            </ul>
+      </div>
+      <div class="col">
+        <h5>Abilities:</h5>
+            <ul>
+              <li *ngFor="let ability of selectedPokemon.abilities">{{ ability.ability.name | titlecase}}</li>
+            </ul>
+      </div>
+    </div>
+    <h6>Stats:</h6>
+    <table>
+      <tr *ngFor="let stat of selectedPokemon.stats">
+        <td>{{ stat.stat.name | titlecase }}&nbsp;</td>
+        <td>{{ stat.base_stat }}</td>
+      </tr>
+    </table>
+  </div>
+ 
+</div>
+
+  
